@@ -1,0 +1,3 @@
+fsm_automatic.c:12:6:fsm_clock	8	static
+fsm_automatic.c:43:6:fsm_automatic_runx	8	static
+fsm_automatic.c:113:6:fsm_automatic_runy	8	static

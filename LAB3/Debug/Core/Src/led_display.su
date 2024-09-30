@@ -1,0 +1,14 @@
+led_display.c:8:6:Display7Seg1	16	static
+led_display.c:100:6:Display7Seg2	16	static
+led_display.c:192:6:Display7Seg3	16	static
+led_display.c:284:6:DisplayClock	16	static
+led_display.c:298:6:DisplayREDX	8	static
+led_display.c:303:6:DisplayYELLOWX	8	static
+led_display.c:308:6:DisplayGREENX	8	static
+led_display.c:313:6:DisplayREDY	8	static
+led_display.c:318:6:DisplayYELLOWY	8	static
+led_display.c:323:6:DisplayGREENY	8	static
+led_display.c:328:6:DisplayMAN_RED	8	static
+led_display.c:332:6:DisplayMAN_GREEN	8	static
+led_display.c:336:6:DisplayMAN_YELLOW	8	static
+led_display.c:340:6:InitLED	8	static
