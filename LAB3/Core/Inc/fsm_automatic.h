@@ -11,9 +11,15 @@
 #include "global.h"
 #include "led_display.h"
 #include "timer.h"
-extern int number_clock1 ;
+extern int number_clock1;
 extern int number_clock2;
-void fsm_automatic_runx();
-void fsm_automatic_runy();
+extern int save_counterTimeSet;
+extern int mode2_flag;
+extern int mode3_flag;
+extern int mode4_flag;
 void fsm_clock(void);
+void fsm_automatic_runx(void);
+void fsm_automatic_runy(void);
+void SetMode(void);
+void ChangeMode(void);
 #endif /* INC_FSM_AUTOMATIC_H_ */

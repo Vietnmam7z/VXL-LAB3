@@ -10,6 +10,6 @@
 
 #include "global.h"
 
-void fsm_manual_run(void);
-
+void fsm_manual_run1(void);
+void fsm_manual_run2(void);
 #endif /* INC_FSM_MANUAL_H_ */

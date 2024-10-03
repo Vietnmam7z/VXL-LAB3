@@ -14,7 +14,6 @@ enum ButtonState buttonState2 = BUTTON_RELEASED;
 enum ButtonState buttonState3 = BUTTON_RELEASED;
 int counterMode = 0;
 int counterTimeSet = 0;
-int Mode3_flag = 0;
 void fsm_for_input_processing1(void){
 	switch(buttonState1){
 		case BUTTON_RELEASED:
@@ -26,7 +25,6 @@ void fsm_for_input_processing1(void){
 						  counterMode = 1;
 					  }
 				}
-				  Display7Seg1(counterMode);
 			}
 		break;
 		case BUTTON_PRESSED:
@@ -54,11 +52,10 @@ void fsm_for_input_processing2(void){
 				buttonState2 = BUTTON_PRESSED ;
 				if(ProcessButton2() == 1){
 					  counterTimeSet++;
-					  if(counterTimeSet > 9){
+					  if(counterTimeSet > 99){
 						  counterTimeSet = 0;
 					  }
 				}
-				  Display7Seg3(counterTimeSet);
 			}
 		break;
 		case BUTTON_PRESSED:
@@ -84,9 +81,6 @@ void fsm_for_input_processing3(void){
 		case BUTTON_RELEASED:
 			if(is_button_pressed(2)){
 				buttonState3 = BUTTON_PRESSED ;
-				if(ProcessButton3() == 1){
-					HAL_GPIO_TogglePin(TEST_GPIO_Port, TEST_Pin);
-				}
 			}
 		break;
 		case BUTTON_PRESSED:

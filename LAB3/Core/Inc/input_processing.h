@@ -13,5 +13,4 @@ void fsm_for_input_processing2(void);
 void fsm_for_input_processing3(void);
 extern int counterMode;
 extern int counterTimeSet;
-extern int Mode3_flag;
 #endif /* INC_INPUT_PROCESSING_H_ */

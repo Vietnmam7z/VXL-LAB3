@@ -1,1 +1,2 @@
-fsm_manual.c:12:6:fsm_manual_run	8	static
+fsm_manual.c:12:6:fsm_manual_run1	8	static
+fsm_manual.c:97:6:fsm_manual_run2	8	static
