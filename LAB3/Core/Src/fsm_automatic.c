@@ -110,7 +110,7 @@ void fsm_clock(void){
 		if(DisplayCounter > 6){
 			DisplayCounter = 0;
 		}
-		setTimer(6, 50);
+		setTimer(6, 100);
 	}
 }
 void fsm_automatic_runx(){

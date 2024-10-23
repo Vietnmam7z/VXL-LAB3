@@ -13,4 +13,5 @@ extern int timer_counter[10];
 void setTimer(int index, int duration);
 void timerRun(void);
 int getCounter(int index);
+void Time_Cycle_Setting(int Time_Cycle);
 #endif /* INC_TIMER_H_ */

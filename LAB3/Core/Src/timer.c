@@ -6,8 +6,8 @@
  */
 #include "main.h"
 #include "input_reading.h"
-#define TIME_CYCLE 10
 #define MAX_COUNTER 10
+int TIME_CYCLE = 10;
 int timer_counter[MAX_COUNTER];
 int timer_flag[MAX_COUNTER];
 void setTimer(int index, int duration){
@@ -33,4 +33,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 }
 int getCounter(int index){
 	return timer_counter[index];
+}
+void Time_Cycle_Setting(int Time_Cycle){
+	TIME_CYCLE = Time_Cycle;
 }
