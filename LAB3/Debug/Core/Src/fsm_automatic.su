@@ -1,5 +1,7 @@
-fsm_automatic.c:16:6:SetMode	8	static
-fsm_automatic.c:60:6:ChangeMode	4	static
-fsm_automatic.c:71:6:fsm_clock	8	static
-fsm_automatic.c:116:6:fsm_automatic_runx	8	static
-fsm_automatic.c:202:6:fsm_automatic_runy	8	static
+fsm_automatic.c:18:6:SetMode	8	static
+fsm_automatic.c:39:6:ChangeModeX	8	static
+fsm_automatic.c:64:6:ChangeModeY	8	static
+fsm_automatic.c:101:6:fsm_clock	8	static
+fsm_automatic.c:139:6:fsm_mode	8	static
+fsm_automatic.c:161:6:fsm_automatic_runx	8	static
+fsm_automatic.c:230:6:fsm_automatic_runy	8	static

@@ -104,63 +104,25 @@ void Display(int x){
 		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
 		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
 		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
-		HAL_GPIO_WritePin(EN4_GPIO_Port, EN4_Pin, SET);
-		HAL_GPIO_WritePin(EN5_GPIO_Port, EN5_Pin, SET);
-		HAL_GPIO_WritePin(EN6_GPIO_Port, EN6_Pin, SET);
 		break;
 	case 1:
 		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
 		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, RESET);
 		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
 		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
-		HAL_GPIO_WritePin(EN4_GPIO_Port, EN4_Pin, SET);
-		HAL_GPIO_WritePin(EN5_GPIO_Port, EN5_Pin, SET);
-		HAL_GPIO_WritePin(EN6_GPIO_Port, EN6_Pin, SET);
 		break;
 	case 2:
 		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
 		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
 		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, RESET);
 		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
-		HAL_GPIO_WritePin(EN4_GPIO_Port, EN4_Pin, SET);
-		HAL_GPIO_WritePin(EN5_GPIO_Port, EN5_Pin, SET);
-		HAL_GPIO_WritePin(EN6_GPIO_Port, EN6_Pin, SET);
 		break;
 	case 3:
 		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
 		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
 		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
 		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, RESET);
-		HAL_GPIO_WritePin(EN4_GPIO_Port, EN4_Pin, SET);
-		HAL_GPIO_WritePin(EN5_GPIO_Port, EN5_Pin, SET);
-		HAL_GPIO_WritePin(EN6_GPIO_Port, EN6_Pin, SET);
-		break;
-	case 4:
-		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
-		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
-		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
-		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
-		HAL_GPIO_WritePin(EN4_GPIO_Port, EN4_Pin, RESET);
-		HAL_GPIO_WritePin(EN5_GPIO_Port, EN5_Pin, SET);
-		HAL_GPIO_WritePin(EN6_GPIO_Port, EN6_Pin, SET);
-		break;
-	case 5:
-		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
-		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
-		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
-		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
-		HAL_GPIO_WritePin(EN4_GPIO_Port, EN4_Pin, SET);
-		HAL_GPIO_WritePin(EN5_GPIO_Port, EN5_Pin, RESET);
-		HAL_GPIO_WritePin(EN6_GPIO_Port, EN6_Pin, SET);
-		break;
-	case 6:
-		HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, SET);
-		HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
-		HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
-		HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
-		HAL_GPIO_WritePin(EN4_GPIO_Port, EN4_Pin, SET);
-		HAL_GPIO_WritePin(EN5_GPIO_Port, EN5_Pin, SET);
-		HAL_GPIO_WritePin(EN6_GPIO_Port, EN6_Pin, RESET);
+
 		break;
 	default:
 		break;

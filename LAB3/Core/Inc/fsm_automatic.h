@@ -14,12 +14,16 @@
 extern int number_clock1;
 extern int number_clock2;
 extern int save_counterTimeSet;
+extern int DisplayCounter;
+extern int mode1_flag;
 extern int mode2_flag;
 extern int mode3_flag;
 extern int mode4_flag;
 void fsm_clock(void);
+void fsm_mode(void);
 void fsm_automatic_runx(void);
 void fsm_automatic_runy(void);
 void SetMode(void);
-void ChangeMode(void);
+void ChangeModeX(void);
+void ChangeModeY(void);
 #endif /* INC_FSM_AUTOMATIC_H_ */

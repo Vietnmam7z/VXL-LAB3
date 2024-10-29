@@ -8,6 +8,5 @@
 #include "global.h"
 int statusx = 0;
 int statusy = 0;
-int statusMode = 0;
 int number_clock1 = 0;
 int number_clock2 = 0;

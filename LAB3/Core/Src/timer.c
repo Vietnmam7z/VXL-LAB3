@@ -24,7 +24,10 @@ void timerRun(void){
 		}
 	}
 }
-
+void ClearTimer(int index){
+		timer_flag[index] = 0;
+		timer_counter[index] = 0;
+}
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	if(htim -> Instance == TIM2){
 		button_reading() ;

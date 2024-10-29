@@ -21,6 +21,7 @@ void fsm_for_input_processing1(void){
 				buttonState1 = BUTTON_PRESSED ;
 				if(ProcessButton1() == 1){
 					  counterMode++;
+					  counterTimeSet = 0;
 					  if(counterMode > 4){
 						  counterMode = 1;
 					  }

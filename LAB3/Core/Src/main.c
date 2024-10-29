@@ -111,11 +111,11 @@ int main(void)
 	HAL_GPIO_WritePin(EN4_GPIO_Port, EN4_Pin, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(EN5_GPIO_Port, EN5_Pin, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(EN6_GPIO_Port, EN6_Pin, GPIO_PIN_SET);
-	statusx = INITX;
-	statusy = INITY;
+	statusx = INIT;
+	statusy = INIT;
 	counterMode = 1;
 	counterTimeSet = 0;
-	statusMode = NORMAL_MODE;
+	DisplayCounter = 0;
 	setTimer(6, 10);
 	setTimer(4, 500);
 	setTimer(5, 500);
@@ -123,7 +123,6 @@ int main(void)
   {
 	  fsm_automatic_runx();
 	  fsm_automatic_runy();
-	  fsm_clock();
 	  fsm_manual_run1();
 	  fsm_manual_run2();
 	  fsm_for_input_processing1();

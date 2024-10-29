@@ -50,53 +50,53 @@ int ProcessButton3(void){
 	 }
 	 return 0;
  }
-void button_reading(void){
-	 for(unsigned char i = 0;i < N0_OF_BUTTONS;i++){
-		 debounceButtonBuffer2[i] = debounceButtonBuffer1[i];
-		 if(i == 0){
-		 debounceButtonBuffer1[0] = HAL_GPIO_ReadPin(Button_GPIO_Port,Button_Pin);
-		 }
-		 else if(i == 1){
-		 debounceButtonBuffer1[1] = HAL_GPIO_ReadPin(Button1_GPIO_Port,Button1_Pin);
-		 }
-		 else if(i == 2){
-		 debounceButtonBuffer1[2] = HAL_GPIO_ReadPin(Button2_GPIO_Port,Button2_Pin);
-		 }
-		 if(debounceButtonBuffer1[i] == debounceButtonBuffer2[i]){
-			 buttonBuffer[i] = debounceButtonBuffer1[i];
-		 	 if(buttonBuffer[i] == BUTTON_IS_PRESSED){
+		void button_reading(void){
+			 for(unsigned char i = 0;i < N0_OF_BUTTONS;i++){
+				 debounceButtonBuffer2[i] = debounceButtonBuffer1[i];
 				 if(i == 0){
-					 Button1Run();
+				 debounceButtonBuffer1[0] = HAL_GPIO_ReadPin(Button_GPIO_Port,Button_Pin);
 				 }
 				 else if(i == 1){
-					 Button2Run();
+				 debounceButtonBuffer1[1] = HAL_GPIO_ReadPin(Button1_GPIO_Port,Button1_Pin);
 				 }
 				 else if(i == 2){
-					 Button3Run();
+				 debounceButtonBuffer1[2] = HAL_GPIO_ReadPin(Button2_GPIO_Port,Button2_Pin);
 				 }
-		 		 if(counterForButtonPress1s[i] < DURATION_FOR_AUTO_INCREASING && flagForButtonPress1s[i] == 0){
-		 			 counterForButtonPress1s[i]++;
-		 		 }
-		 		 else{
-		 			 flagForButtonPress1s[i] = 1;
+				 if(debounceButtonBuffer1[i] == debounceButtonBuffer2[i]){
+					 buttonBuffer[i] = debounceButtonBuffer1[i];
+					 if(buttonBuffer[i] == BUTTON_IS_PRESSED){
+						 if(i == 0){
+							 Button1Run();
+						 }
+						 else if(i == 1){
+							 Button2Run();
+						 }
+						 else if(i == 2){
+							 Button3Run();
+						 }
+						 if(counterForButtonPress1s[i] < DURATION_FOR_AUTO_INCREASING && flagForButtonPress1s[i] == 0){
+							 counterForButtonPress1s[i]++;
+						 }
+						 else{
+							 flagForButtonPress1s[i] = 1;
 
-		 			 if(counterForButtonPress1s[i] < DURATION_FOR_AUTO_INCREASING2){
-		 				counterForButtonPress1s[i]++;
-		 			 }
-		 			 else{
-		 				buttonBuffer[i] = BUTTON_IS_RELEASED;
-		 				counterForButtonPress1s[i] = 100;
-		 			 }
+							 if(counterForButtonPress1s[i] < DURATION_FOR_AUTO_INCREASING2){
+								counterForButtonPress1s[i]++;
+							 }
+							 else{
+								buttonBuffer[i] = BUTTON_IS_RELEASED;
+								counterForButtonPress1s[i] = 100;
+							 }
 
-		 		 }
-		 	 }
-		 }
-		 	 else{
-		 		 counterForButtonPress1s[i] = 0;
-		 		 flagForButtonPress1s[i] = 0;
-		 	 }
-	 	 }
-	}
+						 }
+					 }
+				 }
+					 else{
+						 counterForButtonPress1s[i] = 0;
+						 flagForButtonPress1s[i] = 0;
+					 }
+				 }
+			}
 unsigned char is_button_pressed(uint8_t index){
 	if(index >= N0_OF_BUTTONS) return 0;
 	return (buttonBuffer[index] == BUTTON_IS_PRESSED);
