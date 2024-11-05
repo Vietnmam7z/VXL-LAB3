@@ -15,7 +15,6 @@ extern int number_clock1;
 extern int number_clock2;
 extern int save_counterTimeSet;
 extern int DisplayCounter;
-extern int mode1_flag;
 extern int mode2_flag;
 extern int mode3_flag;
 extern int mode4_flag;

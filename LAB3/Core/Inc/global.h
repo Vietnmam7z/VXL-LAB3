@@ -17,9 +17,7 @@
 #define MAN_RED 5
 #define MAN_GREEN 6
 #define MAN_YELLOW 7
-#define CONF_RED 8
-#define CONF_GREEN 9
-#define CONF_YELLOW 10
+
 
 extern int statusx;
 extern int statusy;

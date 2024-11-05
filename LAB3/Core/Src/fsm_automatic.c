@@ -9,7 +9,6 @@
 #include "input_processing.h"
 #include "main.h"
 int DisplayCounter = 0;
-int mode1_flag = 0;
 int mode2_flag = 0;
 int mode3_flag = 0;
 int mode4_flag = 0;
@@ -20,23 +19,37 @@ int Time_yellow = 2;
 void SetMode(void){
 	if(ProcessButton3() == 1){
 		if(counterMode == 2){
-			mode2_flag = 1;
-			mode3_flag = 0;
-			mode4_flag = 0;
-			save_counterTimeSet = counterTimeSet;
+			Time_red = counterTimeSet;
+			if(Time_red <= Time_green || Time_red <= Time_yellow){
+				Time_red = Time_green + Time_yellow;
+			}
+			else{
+				Time_green = Time_red - Time_yellow;
+			}
+			number_clock1 = Time_red;
+			number_clock2 = Time_green;
 		}
 		if(counterMode == 3){
-			mode2_flag = 0;
-			mode3_flag = 1;
-			mode4_flag = 0;
-			save_counterTimeSet = counterTimeSet;
+			Time_green = counterTimeSet;
+			if(Time_red <= Time_green){
+				Time_red =  Time_yellow + Time_green;
+			}
+			else{
+				Time_yellow = Time_red - Time_green;
+			}
+			number_clock1 = Time_red;
+			number_clock2 = Time_green;
 		}
 		if(counterMode == 4){
-			mode1_flag = 1;
-			mode2_flag = 0;
-			mode3_flag = 0;
-			mode4_flag = 1;
-			save_counterTimeSet = counterTimeSet;
+			Time_yellow = counterTimeSet;
+			if(Time_red <= Time_yellow){
+				Time_red =  Time_yellow + Time_green;
+			}
+			else{
+				Time_green = Time_red - Time_yellow;
+			}
+			number_clock1 =  Time_red;
+			number_clock2 = Time_green;
 		}
 	}
 }
@@ -45,76 +58,46 @@ void ChangeModeX(void){
 		mode4_flag = 0;
 	}
 	if(counterMode == 2){
-		if(mode2_flag == 0){
-			statusx = CONF_RED;
-			InitLED();
-		}
+		statusx = MAN_RED;
+		InitLED();
 	}
 	if(counterMode == 3){
 		mode2_flag = 0;
-		if(mode3_flag == 0){
-			statusx = CONF_GREEN;
-			InitLED();
-		}
+		statusx = MAN_GREEN;
+		InitLED();
 	}
 	if(counterMode == 4){
 		mode3_flag = 0;
-		if(mode4_flag == 0){
-			statusx = CONF_YELLOW;
-			InitLED();
-		}
+		statusx = MAN_YELLOW;
+		InitLED();
 	}
 }
 void ChangeModeY(void){
 	if(counterMode == 1){
 		mode4_flag = 0;
-		if(mode1_flag == 1){
-			mode1_flag = 0;
-			statusx = AUTO_RED;
-			setTimer(0,5000);
-			setTimer(2,100);
-			number_clock1 = timer_counter[0]/100;
-			statusy = AUTO_GREEN;
-			setTimer(1,3000);
-			setTimer(3,100);
-			number_clock2 = timer_counter[1]/100;
-			InitLED();
-		}
 	}
 	if(counterMode == 2){
-		if(mode2_flag == 0){
-			statusy = CONF_RED;
-			InitLED();
-		}
+		statusy = MAN_RED;
+		InitLED();
 	}
 	if(counterMode == 3){
 		mode2_flag = 0;
-		if(mode3_flag == 0){
-			statusy = CONF_GREEN;
-			InitLED();
-		}
+		statusy = MAN_GREEN;
+		InitLED();
 	}
 	if(counterMode == 4){
 		mode3_flag = 0;
-		if(mode4_flag == 0){
-			statusy = CONF_YELLOW;
-			InitLED();
-		}
+		statusy = MAN_YELLOW;
+		InitLED();
 	}
 }
 void fsm_clock(void){
 	if(timer_flag[2] == 1){
 		number_clock1--;
-		if(number_clock1 <= 0){
-			number_clock1 = timer_counter[0]/100 + 1;
-		}
 		setTimer(2, 1000);
 	}
 	if(timer_flag[3] == 1){
 		number_clock2--;
-		if(number_clock2 <= 0){
-			number_clock2 = timer_counter[1]/100 + 1;
-		}
 		setTimer(3, 1000);
 	}
 	if(timer_flag[6] == 1){
@@ -137,7 +120,7 @@ void fsm_clock(void){
 		if(DisplayCounter > 4){
 			DisplayCounter = 0;
 		}
-		setTimer(6, 250);
+		setTimer(6, 100);
 	}
 }
 void fsm_mode(void){
@@ -217,6 +200,7 @@ void fsm_automatic_runy(){
 		statusy = AUTO_GREEN;
 		number_clock2 = Time_green;
 		setTimer(1,number_clock2 * 1000);
+		setTimer(3,100);
 		break;
 	case AUTO_RED:
 		DisplayREDY();
@@ -230,6 +214,7 @@ void fsm_automatic_runy(){
 		}
 		if(timer_flag[1] == 1){
 			InitLED();
+			statusy = AUTO_GREEN;
 			number_clock2 = Time_green;
 			setTimer(1,number_clock2 * 1000);
 		}
