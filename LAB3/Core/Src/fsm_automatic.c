@@ -14,6 +14,9 @@ int mode2_flag = 0;
 int mode3_flag = 0;
 int mode4_flag = 0;
 int save_counterTimeSet = 0;
+int Time_red = 5;
+int Time_green = 3;
+int Time_yellow = 2;
 void SetMode(void){
 	if(ProcessButton3() == 1){
 		if(counterMode == 2){
@@ -163,9 +166,9 @@ void fsm_automatic_runx(){
 	switch(statusx){
 	case INIT:
 		statusx = AUTO_RED;
-		setTimer(0,5000);
+		number_clock1 = Time_red;
+		setTimer(0,number_clock1 * 1000);
 		setTimer(2,100);
-		number_clock1 = timer_counter[0]/100;
 		break;
 	case AUTO_RED:
 		DisplayREDX();
@@ -173,17 +176,10 @@ void fsm_automatic_runx(){
 		SetMode();
 		ChangeModeX();
 		if(timer_flag[0] == 1){
-			if(mode3_flag == 1){
-				InitLED();
-				statusx = MAN_GREEN;
-				setTimer(0, save_counterTimeSet*1000);
-				number_clock1 = timer_counter[0]/100;
-			}
-			else{
-				InitLED();
-				statusx = AUTO_GREEN;
-				setTimer(0,3000);
-			}
+			InitLED();
+			statusx = AUTO_GREEN;
+			number_clock1 = Time_green;
+			setTimer(0,number_clock1 * 1000);
 		}
 		break;
 	case AUTO_GREEN:
@@ -192,17 +188,10 @@ void fsm_automatic_runx(){
 		SetMode();
 		ChangeModeX();
 		if(timer_flag[0] == 1){
-			if(mode4_flag == 1){
-				InitLED();
-				statusx = MAN_YELLOW;
-				setTimer(0, save_counterTimeSet*1000);
-				number_clock1 = timer_counter[0]/100;
-			}
-			else{
-				InitLED();
-				statusx = AUTO_YELLOW;
-				setTimer(0,2000);
-			}
+			InitLED();
+			statusx = AUTO_YELLOW;
+			number_clock1 = Time_yellow;
+			setTimer(0,number_clock1 * 1000);
 		}
 		break;
 	case AUTO_YELLOW:
@@ -211,29 +200,10 @@ void fsm_automatic_runx(){
 		SetMode();
 		ChangeModeX();
 		if(timer_flag[0] == 1){
-			if(mode2_flag == 1){
-				InitLED();
-				statusx = MAN_RED;
-				setTimer(0, save_counterTimeSet*1000);
-				number_clock1 = timer_counter[0]/100;
-			}
-			else if(mode3_flag == 1){
-				InitLED();
-				statusx = AUTO_RED;
-				setTimer(0, save_counterTimeSet*1000 + 2000);
-				number_clock1 = timer_counter[0]/100;
-			}
-			else if(mode4_flag == 1){
-				InitLED();
-				statusx = AUTO_RED;
-				setTimer(0, save_counterTimeSet*1000 + 3000);
-				number_clock1 = timer_counter[0]/100;
-			}
-			else{
-				InitLED();
-				statusx = AUTO_RED;
-				setTimer(0,5000);
-			}
+			InitLED();
+			statusx = AUTO_RED;
+			number_clock1 = Time_red;
+			setTimer(0,number_clock1 * 1000);
 		}
 		break;
 	default:
@@ -245,9 +215,8 @@ void fsm_automatic_runy(){
 	case INIT:
 		DisplayGREENY();
 		statusy = AUTO_GREEN;
-		setTimer(1,3000);
-		setTimer(3,100);
-		number_clock2 = timer_counter[1]/100;
+		number_clock2 = Time_green;
+		setTimer(1,number_clock2 * 1000);
 		break;
 	case AUTO_RED:
 		DisplayREDY();
@@ -260,17 +229,9 @@ void fsm_automatic_runy(){
 			number_clock2 = timer_counter[1]/100;
 		}
 		if(timer_flag[1] == 1){
-			if(mode3_flag == 1){
-				InitLED();
-				statusy = MAN_GREEN;
-				setTimer(1, save_counterTimeSet*1000);
-				number_clock2 = timer_counter[1]/100;
-			}
-			else{
-				InitLED();
-				statusy = AUTO_GREEN;
-				setTimer(1,3000);
-			}
+			InitLED();
+			number_clock2 = Time_green;
+			setTimer(1,number_clock2 * 1000);
 		}
 		break;
 	case AUTO_GREEN:
@@ -284,17 +245,10 @@ void fsm_automatic_runy(){
 			number_clock2 = timer_counter[1]/100;
 		}
 		if(timer_flag[1] == 1){
-			if(mode4_flag == 1){
-				InitLED();
-				statusy = MAN_YELLOW;
-				setTimer(1, save_counterTimeSet*1000);
-				number_clock2 = timer_counter[1]/100;
-			}
-			else{
-				InitLED();
-				statusy = AUTO_YELLOW;
-				setTimer(1,2000);
-			}
+			InitLED();
+			statusy = AUTO_YELLOW;
+			number_clock2 = Time_yellow;
+			setTimer(1,number_clock2 * 1000);
 		}
 		break;
 	case AUTO_YELLOW:
@@ -308,29 +262,10 @@ void fsm_automatic_runy(){
 			number_clock2 = timer_counter[1]/100;
 		}
 		if(timer_flag[1] == 1){
-			if(mode2_flag == 1){
-				InitLED();
-				statusy = MAN_RED;
-				setTimer(1, save_counterTimeSet*1000);
-				number_clock2 = timer_counter[1]/100;
-			}
-			if(mode3_flag == 1){
-				InitLED();
-				statusy = AUTO_RED;
-				setTimer(1, save_counterTimeSet*1000 + 2000);
-				number_clock2 = timer_counter[1]/100;
-			}
-			if(mode4_flag == 1){
-				InitLED();
-				statusy = AUTO_RED;
-				setTimer(1, save_counterTimeSet*1000 + 3000);
-				number_clock2 = timer_counter[1]/100;
-			}
-			else{
-				InitLED();
-				setTimer(1,5000);
-				statusy = AUTO_RED;
-			}
+			InitLED();
+			statusy = AUTO_RED;
+			number_clock2 = Time_red;
+			setTimer(1,number_clock2 * 1000);
 		}
 		break;
 	default:
