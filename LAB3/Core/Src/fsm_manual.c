@@ -42,6 +42,8 @@ void fsm_manual_run1(void){
 		}
 		if(counterMode == 1){
 			statusx = AUTO_RED;
+			number_clock1 = Time_red;
+			number_clock2 = Time_green;
 			setTimer(0,number_clock1 * 1000);
 			setTimer(1,number_clock2 * 1000);
 			setTimer(2,100);
